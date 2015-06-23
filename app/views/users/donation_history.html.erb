@@ -1,8 +1,0 @@
-<%= render :partial => 'users/usernavbar' %>
-
-<h1>Donation History</h1>
-
-<% @donation_history.each do |donation| %>
-<%= "$#{donation.amount} to #{Charity.find(donation.charity_id).name}" %>
-<br />
-<% end %>
