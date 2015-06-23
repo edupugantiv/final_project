@@ -14,9 +14,9 @@
 <div id='cssmenu'>
 <row>
 <ul>
-   <li class='active'><a href='#'><span><%=link_to "Home", "/users/#{current_user.id}" %></span></a></li>
-   <li><a href='#'><span><%=link_to "Preferences", "/categories" %><span></a></li>
-   <li><a href='#'><span><%=link_to "Donation History", user_history_path%></span></a></li>
+   <li class='active'><%=link_to "Home", "/users/#{current_user.id}" %></li>
+   <li><%=link_to "Preferences", "/categories" %></li>
+   <li><%=link_to "Donation History", user_history_path(:id => current_user.id)%></li>
    <li><a href='#'><span>Charities</span></a></li>
    <li class='last'><a href='#'><span>TEMP</span></a></li>
 </ul>
