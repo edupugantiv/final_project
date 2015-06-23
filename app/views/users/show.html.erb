@@ -21,12 +21,11 @@ Or:
 
 <% if @results != [] %>
 	<h3>Your Preferences</h3>
-	<ul>
 	<% @preferences.each do |preference| %>
-		<li>
+		<ul>
 		<%= link_to Category.find(preference.category_id).title, "/categories/#{preference.category_id}" %>
-		<%= link_to "Remove", preference, method: :delete %>
-		</li>
+		<%= link_to "Remove", preference, method: :delete %>	
+</ul>
 		<%end%>
 <% else %>
 
@@ -34,8 +33,6 @@ Or:
 
 
 <% end %>
-
-</ul>
 <br />
 <h4>Your charity of the month</h4>
 <% if current_user.next_donation != nil %>
@@ -53,10 +50,4 @@ Or:
             data-description="<%= Charity.find(current_user.next_donation).name %>"
             data-amount="<%= (current_user.monthly_payment * 100).round %>"></script>
   <% end %>
-<% end %>
-
-<h5>Your donation history</h5>
-<% @donation_history.each do |donation| %>
-<%= "$#{donation.amount} to #{Charity.find(donation.charity_id).name}" %>
-<br />
 <% end %>
