@@ -14,11 +14,13 @@ z-index: 2;
 
 <h1>Categories</h1>
 
-
+<div class="row">
 <% @categories.each do |category| %>
+  <div class="col-md-3 text-left">
 	<%= link_to image_tag(category.avatar.url(:medium)), preferences_path(:user_id => current_user.id, :category_id => category.id), :method => :post %>
+	</div>
 <% end %>
-
+</div>
 <script>
 $(document).ready(function(){
 $("a").hover(function(){
