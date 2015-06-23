@@ -1,0 +1,5 @@
+<h1>Your donation history</h1>
+<% @donation_history.each do |donation| %>
+<%= "$#{donation.amount} to #{Charity.find(donation.charity_id).name}" %>
+<br />
+<% end %>

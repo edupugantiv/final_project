@@ -38,10 +38,8 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def update_monthly
+	def history
 		@user = current_user
-		@user.monthly_payment = params[:monthly]
-		@user.save
-		redirect_to user_path(:id => current_user.id)
+		@donation_history = @user.donations
 	end
 end
