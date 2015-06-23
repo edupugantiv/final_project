@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   post 'charities/:id/donate' => 'charities#donate', as: :donate_charity
+  get 'users/:id/history' => 'users#history', as: :user_history
   get 'users/welcome' => 'users#welcome'
   resources :users, :only => [:index, :show, :edit]
   get 'categories/initial' => 'categories#initial'
