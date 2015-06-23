@@ -1,8 +1,30 @@
 <%= render :partial => 'users/usernavbar' %>
 
+<style>
+.darken:before {
+background: black;
+content: "";
+opacity: 0.4;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 2;
+}
+</style>
+
 <h1>Categories</h1>
 
 
 <% @categories.each do |category| %>
-	<%= link_to image_tag(category.avatar), preferences_path(:user_id => current_user.id, :category_id => category.id), :method => :post %>
+	<%= link_to image_tag(category.avatar.url(:medium)), preferences_path(:user_id => current_user.id, :category_id => category.id), :method => :post %>
 <% end %>
+
+<script>
+$(document).ready(function(){
+$("a").hover(function(){
+	$(this).fadeOut(300);
+}, function(){
+	$(this).fadeIn(300);
+});
+});
+</script>
