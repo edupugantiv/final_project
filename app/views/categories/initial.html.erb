@@ -1,9 +1,85 @@
 <h1>Almost there! Please pick a few categories you are interested in</h1>
 
+<style>
+div{
+	position:relative;
+}
+img{
+position: relative;
+width: 100%;
+height: 230px;
+}
+a{
+	color: black;
+}
 
-<% @categories.each do |category| %>
-<%= link_to image_tag(category.avatar), preferences_path(:user_id => current_user.id, :category_id => category.id), :method => :post %>
-<%end%>
+p{
+	margin: 0px;
+	padding: 0px;
+}
+
+.col-md-2{
+	padding: 0px;
+	margin: 0px;
+}
+.col-md-3{
+	padding: 0px;
+	margin: 0px;
+}
+small{
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: 0px;
+	width: 100%;
+	font-size: 30px;
+	color: black;
+	opacity: 0;
+	padding: 60px;
+	background: white;
+}
+.top_row{
+	height: 230px;
+	width: 100%;
+}
+</style>
+
+<h1>Categories</h1>
+<br />
+<div class="row">
+<% @categories.each_with_index do |category, index| %>
+ <%if index < 6 %>
+  <div class="col-md-2 text-left">
+  <p>
+	<img src=<%= category.avatar.url(:medium) %> >
+	</p>
+	<small class="top_row">	<%= link_to category.title, preferences_path(:user_id => current_user.id, :category_id => category.id), :method => :post %>
+</small>
+  </div>
+ <%else%>
+  <div class="col-md-3 text-left">
+  <p>
+	<img src=<%= category.avatar.url(:medium) %> >
+	</p>
+	<small class="top_row">	<%= link_to category.title, preferences_path(:user_id => current_user.id, :category_id => category.id), :method => :post %>
+</small>
+  </div>
+  <%end%>
+<% end %>
+</div>
+<script>
+$(document).ready(function(){
+$("p").hover(function(){
+	$(this).fadeTo("fast", 0.10)
+}, function(){
+	$(this).fadeTo("fast", 1);
+});
+$("small").hover(function(){
+	$(this).fadeTo("fast", .9)}, function(){
+	$(this).fadeTo("fast", 0);
+});
+});
+</script>
 
 <br />
 <br />
