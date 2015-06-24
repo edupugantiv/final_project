@@ -1,28 +1,14 @@
-<!doctype html>
-<html lang=''>
-<head>
-   <meta charset='utf-8'>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="styles.css">
-   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="script.js"></script>
-   <title>CSS MenuMaker</title>
-</head>
-<body>
+<div class="userbar">
+   <nav id="tabBar"><div class="nav-wrapper"><div class="tab-bar-normal">
+      
+      <div class="user_tab_text">
+      <a href="#home"><%=link_to "Home", "/users/#{current_user.id}" %></a>
 
-<div id='cssmenu'>
-<row>
-<div class = "usertabs">
-<ul>
-   <li class='active'><%=link_to "Home", "/users/#{current_user.id}" %></li>
-   <li><%=link_to "Preferences", "/categories" %></li>
-   <li><%=link_to "Donation History", user_history_path(:id => current_user.id)%></li>
-   <li><a href='#'><span>Charities</span></a></li>
-   <li class='last'><a href='#'><span>TEMP</span></a></li>
-</ul>
-</div>
-</row>
-</div>
-</body>
-<html>
+      <a href="#preferences"><%=link_to "Preferences", "/categories" %></a>
+
+      <a href="#donation_history"><%=link_to "Donation History", user_history_path(:id => current_user.id)%></a>
+
+      <a href="#payment">Payment</a></div>
+
+</div></nav></div>
+
