@@ -1,14 +1,18 @@
+<%= render :partial => 'navbar' %>
 <style>
 .row{
     margin-right: 0px;
 }
+.navbar{
+    opacity: .95;
+}
+.col-md-3{
+    padding-top: 20px;
+}
 </style>
-<%= render :partial => 'navbar' %>
-
-
 <div class="welcome_section">
 <div class="row">
-  <div class="col-md-8 text-left">
+  <div class="col-md-9 text-left">
       <div class="intro_section">
 
         <h1 class="intro white-text">Welcome to Impact.</h1>
@@ -21,7 +25,7 @@
         </div>
       </div>
   </div>
-  <div class="col-md-4 pull-right">
+  <div class="col-md-3 pull-right">
     <%= render :partial => 'devise/registrations/sign_in' %>
   </div>
 </div>
@@ -128,7 +132,7 @@
                         </div>
                         <h3 class="colored-text">Together</h3>
                         <p>
-                           Together we ensure that donated money is going to the right charities and has a meaningful and long-lasting impact.
+                           Together we ensure that donated money is going to the right charities and has a meaningful impact.
                         </p>
                     </div>
                 </div>
