@@ -1,3 +1,8 @@
+<style>
+.carousel-inner > .item > img {
+	margin: 0 auto;
+}
+</style>
 <%= render :partial => 'usernavbar' %>
 <% if @results == [] %>
 	<h2>You have no established preferences</h2>
@@ -28,11 +33,53 @@ Or:
 </ul>
 		<%end%>
 <% else %>
-
-
-
-
 <% end %>
+<div id="prefCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+  	<% @preferences.each_with_index do |preference, index| %>
+  		<% if index == 0 %>
+  		    <li data-target="prefCarousel" data-slide-to=<%=index%> class="active"></li>
+  		<% else %>
+  		    <li data-target="prefCarousel" data-slide-to=<%=index%> ></li>
+  		<% end %>
+    <%end%>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+  <% @preferences.each_with_index do |preference, index| %>
+  	<% if index == 0 %>
+
+  	<div class="item active">
+  		<img src= <%=Category.find(preference.category_id).avatar.url(:medium) %> alt= <%=Category.find(preference.category_id).title %> >
+  		<div class= "carousel-caption">
+  		<h3><%=Category.find(preference.category_id).title%></h3>
+  		</div>
+  	</div>
+
+  	<% else %>
+
+  	 <div class="item">
+  		<img src= <%=Category.find(preference.category_id).avatar.url(:medium) %> alt= <%=Category.find(preference.category_id).title %> >
+  		<div class= "carousel-caption">
+  		<h3><%=Category.find(preference.category_id).title%></h3>
+  		</div>
+  	</div>
+  	<% end %>
+  <% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#prefCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#prefCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 <br />
 <h4>Your charity of the month</h4>
 <% if current_user.next_donation != nil %>
