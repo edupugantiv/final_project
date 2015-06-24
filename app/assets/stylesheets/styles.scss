@@ -12,10 +12,19 @@ body {
 	text-align: center;
 }
 
+
+
 .welcome_section {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url('gp-blue.jpg');
   background-repeat:no-repeat;
   background-size:cover;
+}
+
+.services_section {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url('gp-blue.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  
 }
 
 .navbar_header {
@@ -23,7 +32,8 @@ body {
   margin-top: 10px;
   margin-right: auto;
   margin-bottom: 0;
-  margin-left: 0px;
+  margin-left: -50px;
+  padding-right: 30px;
 }
 
 .navbar_header img {
@@ -45,7 +55,7 @@ body {
 	background: #ffffff;
 	padding: 20px 40px 40px 40px;
 	margin: 40px 40px 40px 0px;
-	float: center;
+	float: left;
 	border-radius: 3px;
 	box-shadow: 0px 0px 3px 0px #000000;
 }
@@ -88,4 +98,8 @@ body {
   -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
   -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
   box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
+}
+
+.navbar_loggedout {
+  height: 40px;
 }
