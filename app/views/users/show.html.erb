@@ -20,7 +20,7 @@ Or:
 <br />
 
 <% if @results != [] %>
-	<h3>Your Preferences</h3>
+	<h3>Current Preferences</h3>
 	<% @preferences.each do |preference| %>
 		<ul>
 		<%= link_to Category.find(preference.category_id).title, "/categories/#{preference.category_id}" %>
