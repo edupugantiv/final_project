@@ -81,3 +81,13 @@ Or:
 </div>
 <br />
 
+<% if @results != [] %>
+  <h3>Current Preferences</h3>
+  <% @preferences.each do |preference| %>
+    <ul>
+    <%= link_to Category.find(preference.category_id).title, "/categories/#{preference.category_id}" %>
+    <%= link_to "Remove", preference, method: :delete %>  
+</ul>
+    <%end%>
+<% else %>
+<% end %>
