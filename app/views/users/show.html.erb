@@ -17,7 +17,7 @@
 <h2>Your matches</h2>
 <%= Charity.find(@results[@i.to_i].charity_id).name %>
 <br />
-<%= link_to "Make next month's charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
+<%= link_to "Donate to this charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
 <br />
 <%= link_to "Next Charity" , user_path(:i => "#{(@i.to_i+1)}") %>
 <br />

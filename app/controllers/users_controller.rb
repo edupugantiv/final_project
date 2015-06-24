@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.next_donation = params[:char_id]
 		@user.save
-		redirect_to :back
+		redirect_to user_payment_path
 	end
 	def first_update
 		if user_signed_in?
