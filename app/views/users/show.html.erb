@@ -2,6 +2,12 @@
 .carousel-inner > .item > img {
 	margin: 0 auto;
 }
+.carousel-caption {
+	position: relative;
+	left: auto;
+	right: auto;
+	color: black;
+}
 </style>
 <%= render :partial => 'clean_navbar' %>
 <%= render :partial => 'usernavbar' %>
@@ -24,7 +30,7 @@ Or:
 <% end %>
 <br />
 <br />
-
+<h2>Your Preferences</h2>
 <div id="prefCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -46,6 +52,7 @@ Or:
   		<img src= <%=Category.find(preference.category_id).avatar.url(:medium) %> alt= <%=Category.find(preference.category_id).title %> >
   		<div class= "carousel-caption">
   		<h3><%=Category.find(preference.category_id).title%></h3>
+  		<footer><%= link_to "Remove", preference, method: :delete %></footer>
   		</div>
   	</div>
 
@@ -55,6 +62,7 @@ Or:
   		<img src= <%=Category.find(preference.category_id).avatar.url(:medium) %> alt= <%=Category.find(preference.category_id).title %> >
   		<div class= "carousel-caption">
   		<h3><%=Category.find(preference.category_id).title%></h3>
+  		<footer><%= link_to "Remove", preference, method: :delete %></footer>
   		</div>
   	</div>
   	<% end %>
