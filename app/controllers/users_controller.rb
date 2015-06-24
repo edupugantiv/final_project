@@ -42,4 +42,10 @@ class UsersController < ApplicationController
 		@user = current_user
 		@donation_history = @user.donations
 	end
+
+	def payment
+		@user = current_user
+		@charity = Charity.find(current_user.next_donation)
+		@amount = @user.monthly_payment
+	end
 end

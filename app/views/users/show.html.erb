@@ -82,20 +82,4 @@ Or:
   </a>
 </div>
 <br />
-<h4>Your charity of the month</h4>
-<% if current_user.next_donation != nil %>
-<br />
-	<%= Charity.find(current_user.next_donation).name %>
-	<%= form_tag donate_charity_path do %>
-    <article>
-      <label class="amount">
-        <span>Amount: $<%= number_with_precision current_user.monthly_payment, precision: 2 %></span>
-      </label>
-    </article>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
-            data-description="<%= Charity.find(current_user.next_donation).name %>"
-            data-amount="<%= (current_user.monthly_payment * 100).round %>"></script>
-  <% end %>
-<% end %>
