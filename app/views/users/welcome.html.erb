@@ -1,8 +1,14 @@
+<style>
+.row{
+    margin-right: 0px;
+}
+</style>
 <%= render :partial => 'navbar' %>
+
 
 <div class="welcome_section">
 <div class="row">
-  <div class="col-md-7 text-left">
+  <div class="col-md-8 text-left">
       <div class="intro_section">
 
         <h1 class="intro white-text">Welcome to Impact.</h1>
@@ -15,7 +21,7 @@
         </div>
       </div>
   </div>
-  <div class="col-md-5 pull-right">
+  <div class="col-md-4 pull-right">
     <%= render :partial => 'devise/registrations/sign_in' %>
   </div>
 </div>
