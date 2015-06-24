@@ -1,13 +1,17 @@
+</br></br>
 <div class="userbar">
    <nav id="tabBar"><div class="nav-wrapper"><div class="tab-bar-normal">
       
       <div class="user_tab_text">
       <a href="#home"><%=link_to "Home", "/users/#{current_user.id}" %></a>
 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="#preferences"><%=link_to "Preferences", "/categories" %></a>
 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="#donation_history"><%=link_to "Donation History", user_history_path(:id => current_user.id)%></a>
 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="#payment">Payment</a></div>
 
 </div></nav></div>
