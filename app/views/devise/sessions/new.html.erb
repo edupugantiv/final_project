@@ -1,3 +1,5 @@
+<%= render :partial => '/users/clean_navbar' %>
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -23,4 +25,6 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up", root_path %><br />
+<% end -%>
