@@ -108,3 +108,61 @@ body {
 .indiv_stakeholder {
    opacity: 0;
 }
+
+.brief {
+	padding-top: 80px;
+	padding-bottom: 115px;
+}
+
+.brief .content-section {
+	margin-top: 15px;
+}
+
+.brief h2 {
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+
+.brief p {
+	margin-top: 40px;
+}
+
+.brief .brief-image-right {
+	margin-top: 20px;
+}
+
+.brief .brief-image-right img {
+	float: right;
+	width: 92%;
+}
+
+.brief .brief-image-left {
+	margin-top: 25px;
+	overflow: hidden;
+}
+
+.brief .brief-image-left img {
+	float: left;
+	width: 95%;
+}
+
+.feature-list {
+	margin-top: 15px;
+}
+
+.feature-list li {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.feature-list li span {
+	margin-right: 10px;
+}
+
+.about_header {
+	font-size: 60px;
+}
+
+.text-left {
+	font-size: 20px;
+}
