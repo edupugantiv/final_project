@@ -13,6 +13,10 @@ Charity.delete_all
 Preference.delete_all
 Result.delete_all
 Donation.delete_all
+User.all.each do |user|
+	user.next_donation = nil
+	user.save
+end
 
 Category.create([{title: 'Animals', avatar: File.open('app/assets/images/animals.jpg', 'rb')}, {title: 'Arts, Culture, Humanities', avatar: File.open('app/assets/images/arts_culture_humanities.jpg', 'rb')}, {title: 'Education', avatar: File.open('app/assets/images/education.jpg', 'rb')}, {title: 'Environment', avatar: File.open('app/assets/images/environment.jpg', 'rb')}, {title: 'Health', avatar: File.open('app/assets/images/health.jpg', 'rb')}, {title: 'Human Services', avatar: File.open('app/assets/images/human_services.jpg', 'rb')}, {title: 'International', avatar: File.open('app/assets/images/international.jpg', 'rb')}, {title: 'Human and Civil Rights', avatar: File.open('app/assets/images/human_and_civil_rights.jpg', 'rb')}, {title: 'Community Developement', avatar: File.open('app/assets/images/community_development.jpg', 'rb')}, {title: 'Research and Public Policy', avatar: File.open('app/assets/images/research_and_public_policy.jpg', 'rb')}])
 Charity.create([

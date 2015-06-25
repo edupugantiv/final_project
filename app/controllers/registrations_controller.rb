@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 	protected
 
     def after_sign_up_path_for(resource)
-      '/categories/initial'
+      '/categories'
     end
 
   	def configure_permitted_parameters
