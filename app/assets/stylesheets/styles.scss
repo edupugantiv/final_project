@@ -12,8 +12,6 @@ body {
 	text-align: center;
 }
 
-
-
 .welcome_section {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url('gp-blue.jpg');
   background-repeat:no-repeat;
@@ -101,6 +99,10 @@ body {
   box-shadow: 0 2px 3px 0 rgba(0,0,0,.2);
 }
 
+.user_tab_text {
+  text-decoration: none;	
+}
+
 .navbar_loggedout {
   height: 40px;
 }
@@ -164,5 +166,9 @@ body {
 }
 
 .text-left {
+	font-size: 20px;
+}
+
+.donate_find_links {
 	font-size: 20px;
 }
