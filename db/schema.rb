@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 20150625135039) do
     t.string   "url"
   end
 
+  create_table "charities_users", id: false, force: :cascade do |t|
+    t.integer "user_id",    null: false
+    t.integer "charity_id", null: false
+  end
+
   create_table "classifications", force: :cascade do |t|
     t.integer "category_id"
     t.integer "charity_id"
