@@ -18,7 +18,9 @@
   height: 450px;
   max-height: 450px;
 }
-
+a{
+	color: black;
+}
 .char_images {
 	width: auto;
 	max-height: 100px;
@@ -91,7 +93,7 @@ Or:
   		<img src= <%=Category.find(preference.category_id).avatar %> alt= <%=Category.find(preference.category_id).title %> >
   		<div class= "carousel-caption">
   		<h3><%=Category.find(preference.category_id).title%></h3>
-  		<footer><%= link_to "Remove", preference, method: :delete %></footer>
+  		<h4><%= link_to "Remove", preference, method: :delete %></h4>
   		</div>
   	</div>
 
