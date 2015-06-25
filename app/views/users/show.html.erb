@@ -2,39 +2,17 @@
 .carousel-inner > .item > img {
 	margin: 0 auto;
 }
+.carousel-caption {
+	position: relative;
+	left: auto;
+	right: auto;
+	color: black;
+}
 </style>
 <%= render :partial => 'clean_navbar' %>
 <%= render :partial => 'usernavbar' %>
-<% if @results == [] %>
-	<h2>You have no established preferences</h2>
-<% elsif @results[@i.to_i] != nil %>
-<h2>Your matches</h2>
-<%= Charity.find(@results[@i.to_i].charity_id).name %>
-<br />
-<%= link_to "Make next month's charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
-<br />
-<%= link_to "Next Charity" , user_path(:i => "#{(@i.to_i+1)}") %>
-<br />
-<% else %>
-<h3>You have no more matching charities</h3>
-<%= link_to "Back to first result" , user_path(:i => "0") %>
-Or:
-<br />
-<%= link_to " Adjust Your Preferences" , "/categories" %>
-<% end %>
-<br />
-<br />
 
-<% if @results != [] %>
-	<h3>Current Preferences</h3>
-	<% @preferences.each do |preference| %>
-		<ul>
-		<%= link_to Category.find(preference.category_id).title, "/categories/#{preference.category_id}" %>
-		<%= link_to "Remove", preference, method: :delete %>	
-</ul>
-		<%end%>
-<% else %>
-<% end %>
+<h2>Selected Preferences (INSERT NUMBER)</h2>
 <div id="prefCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -56,6 +34,7 @@ Or:
   		<img src= <%=Category.find(preference.category_id).avatar.url(:medium) %> alt= <%=Category.find(preference.category_id).title %> >
   		<div class= "carousel-caption">
   		<h3><%=Category.find(preference.category_id).title%></h3>
+  		<footer><%= link_to "Remove", preference, method: :delete %></footer>
   		</div>
   	</div>
 
@@ -65,12 +44,12 @@ Or:
   		<img src= <%=Category.find(preference.category_id).avatar.url(:medium) %> alt= <%=Category.find(preference.category_id).title %> >
   		<div class= "carousel-caption">
   		<h3><%=Category.find(preference.category_id).title%></h3>
+  		<footer><%= link_to "Remove", preference, method: :delete %></footer>
   		</div>
   	</div>
   	<% end %>
   <% end %>
   </div>
-
   <!-- Controls -->
   <a class="left carousel-control" href="#prefCarousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -82,4 +61,34 @@ Or:
   </a>
 </div>
 <br />
+<% if @results == [] %>
+  <h2>You have no established preferences</h2>
+<% elsif @results[@i.to_i] != nil %>
 
+<div class="col-sm-4">
+    <h2>Top Charity Match</h2>
+</div>
+
+<div class="col-sm-4">
+</br>
+  <%= Charity.find(@results[@i.to_i].charity_id).name %>
+</div>
+
+<div class="col-sm-4">
+   <br />
+<%= link_to "Donate Next Month" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
+<br />
+<%= link_to "Find Another Match" , user_path(:i => "#{(@i.to_i+1)}") %>
+<br />
+<% else %>
+<h3>You have no more matching charities</h3>
+<%= link_to "Back to first result" , user_path(:i => "0") %>
+Or:
+<br />
+<%= link_to " Adjust Your Preferences" , "/categories" %>
+<% end %>
+</div>
+
+
+<br />
+<br />
