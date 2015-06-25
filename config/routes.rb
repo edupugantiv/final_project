@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'users/:id/history' => 'users#history', as: :user_history
   get 'users/welcome' => 'users#welcome'
   get 'users/:id/payment' => 'users#payment', as: :user_payment
+  get 'users/:id/update_payment' => 'users#update_payment', as: :user_update_payment
   resources :users, :only => [:index, :show, :edit]
   get 'categories/initial' => 'categories#initial'
   get 'users/:id/next_update' => 'users#next_update', as: :user_next

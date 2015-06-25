@@ -50,4 +50,12 @@ class UsersController < ApplicationController
 		@charity = Charity.find(current_user.next_donation)
 		@amount = @user.monthly_payment
 	end
+
+	def update_payment
+		@user = current_user
+		@payment = params[:payment]
+		@user.monthly_payment = @payment
+		@user.save
+		redirect_to user_payment_path
+	end
 end
