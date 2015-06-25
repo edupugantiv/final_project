@@ -25,7 +25,9 @@
 
 <div class="col-sm-4">
 </br>
-  <%= Charity.find(@results[@i.to_i].charity_id).name %>
+<img src=<%= Charity.find(@results[@i.to_i].charity_id).avatar.url(:medium) %> >
+</br>
+  <%= link_to Charity.find(@results[@i.to_i].charity_id).name, Charity.find(@results[@i.to_i].charity_id).url %>
 </div>
 
 <div class="col-sm-4">
