@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	def index
-		@users = User.all
+		redirect_to root_path
 	end
 	def show
 		if (user_signed_in?) && (current_user.preferences == [])
