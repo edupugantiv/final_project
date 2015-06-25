@@ -5,6 +5,8 @@
 <% if current_user.next_donation != nil %>
 <br />
   <img src=<%= Charity.find(current_user.next_donation).avatar.url(:medium) %> >
+  <br />
+  <br />
 	<%= Charity.find(current_user.next_donation).name %>
 
 <br />
