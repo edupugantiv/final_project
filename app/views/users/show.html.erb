@@ -8,6 +8,16 @@
 	right: auto;
 	color: black;
 }
+.item img {
+  width: auto;
+  height: 116px;
+  max-height: 116px;
+}
+
+.char_images {
+	width: auto;
+	max-height: 100px;
+}
 </style>
 <%= render :partial => 'clean_navbar' %>
 <%= render :partial => 'usernavbar' %>
@@ -25,13 +35,15 @@
 
 <div class="col-sm-4">
 </br>
-<img src=<%= Charity.find(@results[@i.to_i].charity_id).avatar.url(:medium) %> >
+<img class= "char_images" src=<%= Charity.find(@results[@i.to_i].charity_id).avatar.url(:medium) %> >
 </br>
   <%= link_to Charity.find(@results[@i.to_i].charity_id).name, Charity.find(@results[@i.to_i].charity_id).url %>
+  </br>
 </div>
-
+<br />
 <div class="col-sm-4">
-   <br />
+ <br />
+
 <%= link_to "Donate to this charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
 <br />
 <%= link_to "Find Another Match" , user_path(:i => "#{(@i.to_i+1)}") %>
@@ -44,7 +56,11 @@ Or:
 <%= link_to " Adjust Your Preferences" , "/categories" %>
 <% end %>
 </div>
-
+<br />
+<br />
+<br />
+<br />
+<br />
 
 <h2>Your Preferences (<%=current_user.preferences.size%>)</h2>
 <div id="prefCarousel" class="carousel slide" data-ride="carousel">
@@ -94,23 +110,3 @@ Or:
     <span class="sr-only">Next</span>
   </a>
 </div>
-<br />
-<% if @results == [] %>
-	<h2>You have no established preferences</h2>
-<% elsif @results[@i.to_i] != nil %>
-<h2>Your matches</h2>
-<%= Charity.find(@results[@i.to_i].charity_id).name %>
-<br />
-<%= link_to "Donate to this charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
-<br />
-<%= link_to "Next Charity" , user_path(:i => "#{(@i.to_i+1)}") %>
-<br />
-<% else %>
-<h3>You have no more matching charities</h3>
-<%= link_to "Back to first result" , user_path(:i => "0") %>
-Or:
-<br />
-<%= link_to " Adjust Your Preferences" , "/categories" %>
-<% end %>
-<br />
-<br />
