@@ -19,6 +19,7 @@ h2 {
     color: white;
 }
 </style>
+<body>
 <div class="welcome_section">
 <div class="row">
   <div class="col-md-9 text-left">
@@ -48,7 +49,7 @@ h2 {
                 </div>
             </div>
             </br>
-            <div class="row wow fadeIn" data-wow-offset="10" data-wow-duration="1.75s">
+            <div id="team_members">
 
                 <div class="col-md-4 col-sm-6">
                     <div class="team-member wow flipInY" data-wow-offset="10" data-wow-duration="1s">
@@ -102,12 +103,12 @@ h2 {
     <div class="services_section">
 
         <div class="container">
-            <div class="section-header">
-                <h2><strong>Automated</strong> Donations</h2>
-            </div>
             </br>
-                <div class="col-md-4 wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
-                    <div class="single-service border-bottom-hover">
+            </br>
+            </br>
+            <div id="stakeholder_blocks">
+                <div class="single-service border-bottom-hover">
+                    <div class="indiv_stakeholder">
                         <div class="service-icon colored-text">
                             <%= image_tag("users.png", :size => "150x150") %>
                         </div>
@@ -118,8 +119,8 @@ h2 {
                     </div>
                 </div>
 
-                <div class="col-md-4 wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                    <div class="single-service border-bottom-hover">
+                <div class="single-service border-bottom-hover">
+                    <div class="indiv_stakeholder">
                         <div class="service-icon colored-text">
                             <%= image_tag("logo_1.gif", :size => "150x150") %>
                         </div>
@@ -130,8 +131,8 @@ h2 {
                     </div>
                 </div>
 
-                <div class="col-md-4 wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
-                    <div class="single-service border-bottom-hover">
+                <div class="single-service border-bottom-hover">
+                    <div class="indiv_stakeholder">
                         <div class="service-icon colored-text">
                             <%= image_tag("together.png", :size => "150x150") %>
                         </div>
@@ -141,11 +142,10 @@ h2 {
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
-        </div>
-    </section>
+    </div>
+</section>
 
 <section class="contact grey-bg" id="section4">
             <div class="section-header">
@@ -193,4 +193,30 @@ h2 {
     <footer class="footer grey-bg">
         ©2015 Impact. All Rights Reserved
     </footer>
+
+<script>
+$(document).ready(function() {
     
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function(){
+    
+        /* Check the location of each desired element */
+        $('.indiv_stakeholder').each( function(i){
+            
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is completely visible in the window, fade it it */
+            if( bottom_of_window > bottom_of_object ){
+                
+                $(this).animate({'opacity':'1'},500);
+                    
+            }
+            
+        }); 
+    
+    });
+    
+});
+</script>
+</body>
