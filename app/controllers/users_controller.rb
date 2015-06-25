@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 		end
 
 		@user = User.find(params[:id])
+		@worked = params[:worked]
 		@preferences = @user.preferences
 		@charities = @user.matched_charities
 		@results = @user.results
@@ -45,6 +46,7 @@ class UsersController < ApplicationController
 
 	def payment
 		@user = current_user
+		@worked = params[:worked]
 		@charity = Charity.find(current_user.next_donation)
 		@amount = @user.monthly_payment
 	end
