@@ -44,7 +44,11 @@ small{
 	width: 100%;
 }
 </style>
-
+<% if ((@worked=="true") && (@tried=="true"))%>
+<div class="alert alert-success" role="alert">You have added <%= Category.find(current_user.preferences.last.category_id).title%> to your preferences</div>
+<% elsif ((@worked=="false") && (@tried=="true"))%>
+<div class="alert alert-warning" role="alert">You already have <%=@title%> in your preferences</div>
+<% end %>
 <h1>Categories</h1>
 <br />
 <div class="row">
@@ -68,6 +72,11 @@ small{
   <%end%>
 <% end %>
 </div>
+
+	<%= link_to "Done!" , user_path(:id => current_user.id) %>
+
+
+<footer>Don't worry! These preferences can always be changed later</footer>
 <script>
 $(document).ready(function(){
 $("p").hover(function(){

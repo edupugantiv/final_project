@@ -12,11 +12,10 @@ class PreferencesController < ApplicationController
 		if @preference.save
 			update_results
 			check_charity
-			redirect_to(:back)
-			flash[:notice] = "You have added #{Category.find(@preference.category_id).title} to your preferences."
+			redirect_to categories_path(:worked => true, :tried => true)
 		else
 			flash[:notice] = "You already have this preference."
-			redirect_to(:back)
+			redirect_to categories_path(:worked => false, :tried => true, :cat_title => Category.find(@preference.category_id).title)
 		end
 	end
 

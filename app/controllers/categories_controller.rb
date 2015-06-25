@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
 	def index
-		@categories = Category.all 
+		@categories = Category.all
+		@worked = params[:worked]
+		@tried = params[:tried]
+		@title = params[:cat_title]
 	end
 	def show
 		@category = Category.find(params[:id])

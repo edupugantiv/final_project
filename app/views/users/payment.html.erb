@@ -1,7 +1,7 @@
 <%= render :partial => 'clean_navbar' %>
 <%= render :partial => 'usernavbar' %>
 
-<h4>Your charity of the month</h4>
+<h4>Your selection</h4>
 <% if current_user.next_donation != nil %>
 <br />
 	<%= Charity.find(current_user.next_donation).name %>

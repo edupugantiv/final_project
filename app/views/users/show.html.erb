@@ -11,8 +11,40 @@
 </style>
 <%= render :partial => 'clean_navbar' %>
 <%= render :partial => 'usernavbar' %>
+<% if @worked == "true" %>
+<div class="alert alert-success" role="alert">You have donated $<%=current_user.monthly_payment%>0 to <%=Charity.find(current_user.next_donation).name%>
+</div>
+<% end %>
+<% if @results == [] %>
+  <h2>You have no established preferences</h2>
+<% elsif @results[@i.to_i] != nil %>
 
-<h2>Selected Preferences (INSERT NUMBER)</h2>
+<div class="col-sm-4">
+    <h2>Top Charity Match</h2>
+</div>
+
+<div class="col-sm-4">
+</br>
+  <%= Charity.find(@results[@i.to_i].charity_id).name %>
+</div>
+
+<div class="col-sm-4">
+   <br />
+<%= link_to "Donate to this charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
+<br />
+<%= link_to "Find Another Match" , user_path(:i => "#{(@i.to_i+1)}") %>
+<br />
+<% else %>
+<h3>You have no more matching charities</h3>
+<%= link_to "Back to first result" , user_path(:i => "0") %>
+Or:
+<br />
+<%= link_to " Adjust Your Preferences" , "/categories" %>
+<% end %>
+</div>
+
+
+<h2>Your Preferences (<%=current_user.preferences.size%>)</h2>
 <div id="prefCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -62,23 +94,14 @@
 </div>
 <br />
 <% if @results == [] %>
-  <h2>You have no established preferences</h2>
+	<h2>You have no established preferences</h2>
 <% elsif @results[@i.to_i] != nil %>
-
-<div class="col-sm-4">
-    <h2>Top Charity Match</h2>
-</div>
-
-<div class="col-sm-4">
-</br>
-  <%= Charity.find(@results[@i.to_i].charity_id).name %>
-</div>
-
-<div class="col-sm-4">
-   <br />
-<%= link_to "Donate Next Month" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
+<h2>Your matches</h2>
+<%= Charity.find(@results[@i.to_i].charity_id).name %>
 <br />
-<%= link_to "Find Another Match" , user_path(:i => "#{(@i.to_i+1)}") %>
+<%= link_to "Donate to this charity" , user_next_path(:char_id => @results[@i.to_i].charity_id) %>
+<br />
+<%= link_to "Next Charity" , user_path(:i => "#{(@i.to_i+1)}") %>
 <br />
 <% else %>
 <h3>You have no more matching charities</h3>
@@ -87,8 +110,5 @@ Or:
 <br />
 <%= link_to " Adjust Your Preferences" , "/categories" %>
 <% end %>
-</div>
-
-
 <br />
 <br />

@@ -25,7 +25,7 @@ class CharitiesController < ApplicationController
 			:currency => 'usd'
 		)
 		Donation.create(user_id: current_user.id , charity_id: @charity.id, amount: (@amount / 100) )
-		redirect_to root_path, notice: "Success! You've donated to #{@charity.name}"
+		redirect_to user_path(:id => current_user.id, :worked => true)
 		rescue Stripe::CardError => e
     		flash[:error] = e.message
     		redirect_to root_path
