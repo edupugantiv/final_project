@@ -56,6 +56,10 @@ a{
 <br />
 <%= link_to "Find another match" , user_path(:i => "#{(@i.to_i+1)}") %>
 <br />
+<% if @i.to_i > 0 %>
+<%= link_to "Previous match" , user_path(:i => "#{(@i.to_i-1)}") %>
+<% end %>
+<br />
 </div>
 <% else %>
 <h3>You have no more matching charities</h3>
